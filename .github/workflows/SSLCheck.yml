@@ -33,7 +33,7 @@ jobs:
         npm run build
         cd CheckSSL
         chmod +x checker.sh
-        ./checker.sh blog.cyfan.top cyfan.top status.cyfan.top tools.cyfan.top so.cyfan.top www.cyfan.top api.cyfan.top pan.cyfan.top cdn.cyfan.top ssl.cyfan.top pixiv.cyfan.top pixiv-img.cyfan.top
+        ./checker.sh blog.081531.xyz npm.081531.xyyz uptime.081531.xyz m.081531.xyz mm.081531.xyz music.081531.xyz dockerflare.081531.xyz fc.081531.xya openlist.081531.xyz meting.081531.xyz pansou.081531.xyz search.081531.xyz imgbed.081531.xyz gallery.081531.xyz
         cp -rf ./output/ct.json ../public/ct.json
         echo "ssl.cyfan.top" > ../public/CNAME
         
