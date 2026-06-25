@@ -1,4 +1,4 @@
-name: ChenYFanのSSLCheck
+name: MorettiのSSLCheck
 
 on: 
   push:
@@ -13,27 +13,24 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: master
+
     - name: Setup node
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v4
       with:
-        node-version: '10'
-    - name: Cache node modules
-      uses: actions/cache@v1
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        node-version: '20'
+        cache: 'npm'
 
     - name: Install & Build
       run: |
-        npm i
+        npm ci
         git clone https://github.com/ChenYFan/CheckSSL --depth=2
         npm run build
         cd CheckSSL
         chmod +x checker.sh
-        ./checker.sh blog.081531.xyz npm.081531.xyyz uptime.081531.xyz m.081531.xyz mm.081531.xyz music.081531.xyz dockerflare.081531.xyz fc.081531.xya openlist.081531.xyz meting.081531.xyz pansou.081531.xyz search.081531.xyz imgbed.081531.xyz gallery.081531.xyz
+        ./checker.sh blog.081531.xyz npm.081531.xyz uptime.081531.xyz m.081531.xyz mm.081531.xyz music.081531.xyz dockerflare.081531.xyz fc.081531.xya openlist.081531.xyz meting.081531.xyz pansou.081531.xyz search.081531.xyz imgbed.081531.xyz gallery.081531.xyz moment.081531.xyz
         cp -rf ./output/ct.json ../public/ct.json
         echo "ssl.cyfan.top" > ../public/CNAME
         
